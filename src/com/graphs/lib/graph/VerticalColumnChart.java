@@ -22,6 +22,7 @@ public class VerticalColumnChart extends ColumnChart
     public void draw()
     {
         drawEmptyChart();
+        drawTitle();
         drawVerticalColumns();
         drawVerticalColumnsLabels();
         drawHorizontalSeparatorsWithLabels();
@@ -40,28 +41,59 @@ public class VerticalColumnChart extends ColumnChart
             line = new Line(this, new Point(minHorizontalSeparatorsLength, i), new Point(maxHorizontalSeparatorsLength, i));
             line.draw();
 
-            //lengthOfValue = Double.toString(value).length();
-
             if(value != (int)value)
             {
-                text = new Text(this, Double.toString(value), new Point(0.001*width,i-0.02*height), //(669, 12.8)
-                        new Point(0.039*width,i+0.02*height), (int)valueFontSize, new Color(0,0,0));
-                text.draw();
+                lengthOfValue = Double.toString(value).length();
+
+                if(lengthOfValue <= 4)
+                {
+                    text = new Text(this, Double.toString(value), new Point((0.03+((1-lengthOfValue)*0.01))*width,
+                            i-0.02*height),
+                            new Point(0.039*width,i+0.06*height), (int)valueFontSize, new Color(0,0,0));
+                    text.draw();
+                }
+                else
+                {
+                    text = new Text(this, Double.toString(value), new Point(0.0*width,
+                            i-0.02*height),
+                            new Point(0.039*width,i+0.06*height), (int)valueFontSize, new Color(0,0,0));
+                    text.draw();
+                }
             }
             else
             {
                 int intValue = (int)value;
 
-                text = new Text(this, Integer.toString(intValue), new Point(0.001*width,i-0.02*height), //(669, 12.8)
-                        new Point(0.039*width,i+0.02*height), (int)valueFontSize, new Color(0,0,0));
-                text.draw();
+                lengthOfValue = Integer.toString(intValue).length();
+
+                if(lengthOfValue <= 4)
+                {
+                    text = new Text(this, Integer.toString(intValue), new Point((0.03+((1-lengthOfValue)*0.01))*width,
+                            i-0.06*height),
+                            new Point(0.039*width,i+0.06*height), (int)valueFontSize, new Color(0,0,0));
+                    text.draw();
+                }
+                else
+                {
+                    text = new Text(this, Integer.toString(intValue), new Point(0.0*width,
+                            i-0.06*height),
+                            new Point(0.039*width,i+0.06*height), (int)valueFontSize, new Color(0,0,0));
+                    text.draw();
+                }
             }
 
             value += valuesSpike;
 
-//            Line helpLine = new Line(this, new Point(0.001*width,i-0.02*height),
-//                    new Point(0.039*width,i+0.02*height));
+//            Text helpText = new Text(this, Double.toString((0.03+((1-lengthOfValue)*0.01))), new Point(300, 300+i),
+//                    new Point(500, 500),
+//                    (int)valueFontSize, new Color(0,0,0));
+//            helpText.draw();
+
+//            Line helpLine = new Line(this, new Point((0.03+((1-lengthOfValue)*0.01))*width ,i-0.06*height),
+//                    new Point(0.039*width,i+0.06*height));
 //            helpLine.draw();
+
+
         }
     }
 

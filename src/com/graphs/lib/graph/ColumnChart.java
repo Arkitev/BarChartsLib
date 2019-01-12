@@ -1,9 +1,6 @@
 package com.graphs.lib.graph;
 
-import com.graphs.lib.graph.element.Line;
-import com.graphs.lib.graph.element.Point;
-import com.graphs.lib.graph.element.Rectangle;
-import com.graphs.lib.graph.element.Text;
+import com.graphs.lib.graph.element.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +35,7 @@ abstract class ColumnChart extends Graph
         this.maxAxisHeight = height-(verticalAxisRatio*0.85*height + 0.05*height);
         this.minHorizontalSeparatorsLength = ((0.01-(verticalAxisRatio/100))+0.04)*width;
         this.maxHorizontalSeparatorsLength = (0.06-(0.01-(verticalAxisRatio/100)))*width;
-        this.valueFontSize = valueFontSize * verticalAxisRatio;
+        this.valueFontSize = valueFontSize * verticalAxisRatio + 10*(1.0-verticalAxisRatio);
     }
 
     public void setHorizontalAxisRatio(double horizontalAxisRatio )
@@ -47,7 +44,7 @@ abstract class ColumnChart extends Graph
         this.maxAxisWidth = horizontalAxisRatio*0.85*width + 0.05*width;
         this.minVerticalSeparatorsLength = ((0.01-(horizontalAxisRatio/100))+0.94)*height;
         this.maxVerticalSeparatorsLength = (0.96-(0.01-(horizontalAxisRatio/100)))*height;
-        this.valueFontSize = valueFontSize * horizontalAxisRatio;
+        this.valueFontSize = valueFontSize * horizontalAxisRatio + 10*(1.0-horizontalAxisRatio);
     }
 
     public void setSeparatorsAmount(int separatorsAmount)
@@ -75,7 +72,11 @@ abstract class ColumnChart extends Graph
     }
 
     @Override
-    public void draw() { drawEmptyChart(); }
+    public void draw()
+    {
+        drawEmptyChart();
+        drawTitle();
+    }
 
     public void drawEmptyChart()
     {

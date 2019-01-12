@@ -37,7 +37,18 @@ abstract class Graph extends PApplet {
 
     void drawTitle(){
         //Todo: Exception
+//        try
+//        {
+//            title.draw();
+//        }
+//        catch(ArrayIndexOutOfBoundsException e)
+//        {
+//            System.out.println("Error xD");
+//        }
+
         if(title != null)
             title.draw();
+        else
+            System.out.println("Error xD");
     }
 }
