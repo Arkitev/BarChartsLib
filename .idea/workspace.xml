@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="898a4556-92d8-4f70-a1f2-a49c47d41bdb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/ColumnChart.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/ColumnChart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/Graph.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/Graph.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/HorizontalColumnChart.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/HorizontalColumnChart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/PieChart.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/PieChart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/PointGraph.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/PointGraph.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/RadarChart.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/RadarChart.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/VerticalColumnChart.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/VerticalColumnChart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/element/GraphTitle.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/lib/graph/element/GraphTitle.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/test/Main.class" afterPath="$PROJECT_DIR$/out/production/barchartslib/com/graphs/test/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/graphs/lib/graph/ColumnChart.java" afterPath="$PROJECT_DIR$/src/com/graphs/lib/graph/ColumnChart.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/graphs/lib/graph/Graph.java" afterPath="$PROJECT_DIR$/src/com/graphs/lib/graph/Graph.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/graphs/lib/graph/VerticalColumnChart.java" afterPath="$PROJECT_DIR$/src/com/graphs/lib/graph/VerticalColumnChart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/graphs/lib/graph/element/GraphTitle.java" afterPath="$PROJECT_DIR$/src/com/graphs/lib/graph/element/GraphTitle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/graphs/lib/graph/element/Text.java" afterPath="$PROJECT_DIR$/src/com/graphs/lib/graph/element/Text.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/graphs/test/Main.java" afterPath="$PROJECT_DIR$/src/com/graphs/test/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/graphs/test/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="400">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -33,19 +39,32 @@
       <file leaf-file-name="LegendArea.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/LegendArea.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-125">
+            <state relative-caret-position="25">
               <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Text.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/Text.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1752">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="350">
+              <caret line="40" column="69" lean-forward="true" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
+              <folding>
+                <element signature="e#1549#1550#0" expanded="true" />
+                <element signature="e#1577#1578#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,7 +73,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/Color.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="37" lean-forward="true" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+              <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -63,8 +82,8 @@
       <file leaf-file-name="GraphTitle.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/GraphTitle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-175">
-              <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+            <state relative-caret-position="-324">
+              <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -74,7 +93,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/ColumnChart.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="276">
-              <caret line="77" column="8" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="20" />
+              <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -83,8 +102,8 @@
       <file leaf-file-name="VerticalColumnChart.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/VerticalColumnChart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+            <state relative-caret-position="100">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -93,7 +112,7 @@
       <file leaf-file-name="HorizontalColumnChart.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/HorizontalColumnChart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="925">
               <caret line="43" column="64" lean-forward="false" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="64" />
               <folding />
             </state>
@@ -101,6 +120,12 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>center</find>
+      <find>value</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -114,8 +139,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/graphs/lib/graph/ColumnChart.java" />
-        <option value="$PROJECT_DIR$/src/com/graphs/lib/graph/Graph.java" />
+        <option value="$PROJECT_DIR$/src/com/graphs/lib/graph/element/Text.java" />
+        <option value="$PROJECT_DIR$/src/com/graphs/lib/graph/element/GraphTitle.java" />
         <option value="$PROJECT_DIR$/src/com/graphs/lib/graph/VerticalColumnChart.java" />
+        <option value="$PROJECT_DIR$/src/com/graphs/lib/graph/Graph.java" />
         <option value="$PROJECT_DIR$/src/com/graphs/test/Main.java" />
       </list>
     </option>
@@ -141,7 +168,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,10 +222,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Semestr 5/Inżynieria oprogramowania/chartslib-master/chartslib-master" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -379,6 +409,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/LegendArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1250">
+          <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+          <folding>
+            <element signature="e#1549#1550#0" expanded="true" />
+            <element signature="e#1577#1578#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/Color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="37" lean-forward="true" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/GraphTitle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/ColumnChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="77" column="8" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/VerticalColumnChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/HorizontalColumnChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1075">
+          <caret line="43" column="64" lean-forward="false" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/test/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/barchartslib.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -396,16 +493,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/HorizontalColumnChart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="925">
           <caret line="43" column="64" lean-forward="false" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/Drawable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/PieChart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -413,23 +518,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/Color.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="37" lean-forward="true" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/LegendArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="50" column="12" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
+          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -437,32 +526,59 @@
     <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/ColumnChart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
-          <caret line="77" column="8" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="20" />
+          <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/VerticalColumnChart.java">
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/LegendArea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="20" lean-forward="false" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="25">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/GraphTitle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        <state relative-caret-position="-324">
+          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/VerticalColumnChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/element/Text.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1752">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/graphs/test/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        <state relative-caret-position="400">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/graphs/lib/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="40" column="69" lean-forward="true" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="69" />
+          <folding>
+            <element signature="e#1549#1550#0" expanded="true" />
+            <element signature="e#1577#1578#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

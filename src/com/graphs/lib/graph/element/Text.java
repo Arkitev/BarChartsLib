@@ -101,7 +101,7 @@ public class Text implements Drawable {
     }
 
     public enum Align{
-        CENTER(3), TOP(101),BOTTOM(102),LEFT(37),RIGHT(39);
+        CENTER(3), TOP(101), BOTTOM(102), LEFT(37), RIGHT(39);
 
         private final int value;
         Align(int value){ this.value = value;}

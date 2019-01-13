@@ -8,7 +8,7 @@ import processing.core.PApplet;
 
 abstract class Graph extends PApplet {
 
-    private GraphTitle title;
+    private GraphTitle title = new GraphTitle(this, "no title", 24, Text.Align.TOP, Text.Align.CENTER, new Color(0,0,0));
 
     Graph() {
         this.width = 800;
@@ -23,32 +23,37 @@ abstract class Graph extends PApplet {
         PApplet.runSketch(new String[] {Graph.class.getName()},this);
     }
 
-    public void settings(){
-    }
+    public void settings(){}
 
     public void setup() {
         surface.setResizable(false);
     }
     public abstract void draw();
 
-    public void setTitle(String title, float fontsize, String align, Color color){
-        this.title = new GraphTitle(this,title,fontsize,align,color);
+    public void setTitle(String title, float fontsize, Text.Align vAlign, Text.Align hAlign, Color color){
+        setTitle(title);
+        setTitleFontSize(fontsize);
+        setTitleVAlign(vAlign);
+        setTitleHAlign(hAlign);
+        setTitleColor(color);
     }
 
-    void drawTitle(){
-        //Todo: Exception
-//        try
-//        {
-//            title.draw();
-//        }
-//        catch(ArrayIndexOutOfBoundsException e)
-//        {
-//            System.out.println("Error xD");
-//        }
+    public void setTitle(String title){ this.title.setTitle(title); }
+    public void setTitleColor(Color color){
+        this.title.setColor(color);
+    }
+    public void setTitleFontSize(float fontSize){
+        this.title.setFontsize(fontSize);
+    }
+    public void setTitleVAlign(Text.Align vAlign){
+        this.title.setvAlign(vAlign);
+    }
+    public void setTitleHAlign(Text.Align hAlign){
+        this.title.sethAlign(hAlign);
+    }
 
-        if(title != null)
-            title.draw();
-        else
-            System.out.println("Error xD");
+    void drawTitle()
+    {
+        title.draw();
     }
 }

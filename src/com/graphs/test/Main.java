@@ -5,6 +5,11 @@ import com.graphs.lib.graph.PointGraph;
 import com.graphs.lib.graph.VerticalColumnChart;
 import com.graphs.lib.graph.element.Color;
 import com.graphs.lib.graph.element.GraphTitle;
+import com.graphs.lib.graph.element.Text;
+
+import static com.graphs.lib.graph.element.Text.Align.BOTTOM;
+import static com.graphs.lib.graph.element.Text.Align.CENTER;
+import static com.graphs.lib.graph.element.Text.Align.RIGHT;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +20,8 @@ public class Main {
         verticalGraph.setMinDataValues(0);
         verticalGraph.setMaxDataValues(1000);
         verticalGraph.run();
-        verticalGraph.setTitle("Wykres xD", 30, "Center", new Color(0,0,0));
+        verticalGraph.setTitle("Wykres xD", 40, Text.Align.TOP, Text.Align.CENTER, new Color(50,100,150));
+
 
 
         //HorizontalColumnChart horizontalGraph = new HorizontalColumnChart(1280,720);

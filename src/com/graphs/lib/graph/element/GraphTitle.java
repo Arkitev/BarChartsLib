@@ -6,18 +6,17 @@ public class GraphTitle implements Drawable {
     private PApplet parent;
     private String title;
     private float fontsize;
-    private String align;
+    private Text.Align hAlign;
+    private Text.Align vAlign;
     private Color color;
 
-
-    public GraphTitle() {
-    }
-
-    public GraphTitle(PApplet parent, String title, float fontsize, String align, Color color) {
+    public GraphTitle(PApplet parent, String title, float fontsize, Text.Align vAlign, Text.Align hAlign, Color color)
+    {
         this.parent = parent;
         this.title = title;
         this.fontsize = fontsize;
-        this.align = align;
+        this.hAlign = hAlign;
+        this.vAlign = vAlign;
         this.color = color;
     }
 
@@ -29,14 +28,6 @@ public class GraphTitle implements Drawable {
         this.title = title;
     }
 
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
-        this.color = color;
-    }
-
     public float getFontsize() {
         return fontsize;
     }
@@ -45,17 +36,26 @@ public class GraphTitle implements Drawable {
         this.fontsize = fontsize;
     }
 
-    public String getAlign() {
-        return align;
+    public void sethAlign(Text.Align hAlign) {
+        this.hAlign = hAlign;
     }
 
-    public void setAlign(String align) {
-        this.align = align;
+    public void setvAlign(Text.Align vAlign) {
+        this.vAlign = vAlign;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public void draw(){
-        Text text = new Text(parent, title, new Point(0,0),new Point(parent.width,0.1*parent.height),fontsize,color);
-        //text.setHorizontalAlign(align);
+        Text text = new Text(parent, title, new Point(0,0),new Point(parent.width,0.1*parent.height), fontsize, color);
+        text.setHorizontalAlign(hAlign);
+        text.setVerticalAlign(vAlign);
         text.draw();
     }
 }
