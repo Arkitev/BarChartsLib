@@ -21,6 +21,7 @@ abstract class ColumnChart extends Graph
     protected double maxDataValues = 1000; // can not be bigger than the biggest value of columnsValues List
     protected double valuesSpike = (maxDataValues-minDataValues) / (separatorsAmount-1);
     protected double valueFontSize = 20;
+    protected int roundValue = 2;
 
     protected double columnsWidth = 25; //TODO: think about proper axis scalling
     protected double columnsGapsWidth = 3; //TODO: think about proper axis scalling
@@ -28,6 +29,17 @@ abstract class ColumnChart extends Graph
     protected List<Rectangle> columns = new ArrayList<>();
     protected List<Text> columnsLabels = new ArrayList<>();
     protected List<Text> columnsValues = new ArrayList<>();
+
+    public ColumnChart(int width, int height)
+    {
+        super(width, height);
+    }
+
+    public ColumnChart()
+    {
+        this.width = 800;
+        this.height = 600;
+    }
 
     public void setVerticalAxisRatio(double verticalAxisRatio)
     {
@@ -44,7 +56,7 @@ abstract class ColumnChart extends Graph
         this.maxAxisWidth = horizontalAxisRatio*0.85*width + 0.05*width;
         this.minVerticalSeparatorsLength = ((0.01-(horizontalAxisRatio/100))+0.94)*height;
         this.maxVerticalSeparatorsLength = (0.96-(0.01-(horizontalAxisRatio/100)))*height;
-        this.valueFontSize = valueFontSize * horizontalAxisRatio + 10*(1.0-horizontalAxisRatio);
+        this.valueFontSize = (valueFontSize * horizontalAxisRatio + 10*(1.0-horizontalAxisRatio)) / (1920.0/width);
     }
 
     public void setSeparatorsAmount(int separatorsAmount)
@@ -60,22 +72,15 @@ abstract class ColumnChart extends Graph
         this.valuesSpike = (maxDataValues-minDataValues) / (separatorsAmount-1);
     }
 
-    public ColumnChart(int width, int height)
+    public void setRoundValue(int roundValue)
     {
-        super(width, height);
-    }
-
-    public ColumnChart()
-    {
-        this.width = 900;
-        this.height = 600;
+        this.roundValue = roundValue;
     }
 
     @Override
     public void draw()
     {
         drawEmptyChart();
-        drawTitle();
     }
 
     public void drawEmptyChart()

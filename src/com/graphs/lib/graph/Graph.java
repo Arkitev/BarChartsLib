@@ -10,11 +10,13 @@ abstract class Graph extends PApplet {
 
     private GraphTitle title = new GraphTitle(this, "no title", 24, Text.Align.TOP, Text.Align.CENTER, new Color(0,0,0));
 
-    Graph() {
+    Graph()
+    {
         this.width = 800;
         this.height = 600;
     }
-    Graph(int width, int height) {
+    Graph(int width, int height)
+    {
         this.width = width;
         this.height = height;
     }
@@ -28,6 +30,7 @@ abstract class Graph extends PApplet {
     public void setup() {
         surface.setResizable(false);
     }
+
     public abstract void draw();
 
     public void setTitle(String title, float fontsize, Text.Align vAlign, Text.Align hAlign, Color color){
@@ -52,8 +55,14 @@ abstract class Graph extends PApplet {
         this.title.sethAlign(hAlign);
     }
 
-    void drawTitle()
-    {
-        title.draw();
+    void drawTitle() { title.draw(); }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 }

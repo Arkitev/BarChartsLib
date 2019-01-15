@@ -14,7 +14,7 @@ public class HorizontalColumnChart extends ColumnChart
 
     public HorizontalColumnChart()
     {
-        this.width = 900;
+        this.width = 800;
         this.height = 600;
     }
 
@@ -22,6 +22,7 @@ public class HorizontalColumnChart extends ColumnChart
     public void draw()
     {
         drawEmptyChart();
+        drawTitle();
         drawVerticalSeparatorsWithLabels();
         drawHorizontalColumns();
         drawHorizontalColumnsLabels();

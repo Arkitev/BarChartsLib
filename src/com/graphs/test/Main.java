@@ -13,16 +13,15 @@ import static com.graphs.lib.graph.element.Text.Align.RIGHT;
 
 public class Main {
     public static void main(String[] args) {
-        VerticalColumnChart verticalGraph = new VerticalColumnChart(1600,900);
+        VerticalColumnChart verticalGraph = new VerticalColumnChart(1600, 900);
         verticalGraph.setHorizontalAxisRatio(1);
         verticalGraph.setVerticalAxisRatio(1);
         verticalGraph.setSeparatorsAmount(11);
         verticalGraph.setMinDataValues(0);
         verticalGraph.setMaxDataValues(1000);
+        verticalGraph.setTitle("Wykres kolumnowy", 40, Text.Align.RIGHT, Text.Align.CENTER, new Color(50,100,150));
+        verticalGraph.setRoundValue(3);
         verticalGraph.run();
-        verticalGraph.setTitle("Wykres xD", 40, Text.Align.TOP, Text.Align.CENTER, new Color(50,100,150));
-
-
 
         //HorizontalColumnChart horizontalGraph = new HorizontalColumnChart(1280,720);
         //horizontalGraph.setHorizontalAxisRatio(0.49834718974);
