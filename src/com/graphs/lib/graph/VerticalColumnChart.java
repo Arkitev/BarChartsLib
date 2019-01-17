@@ -22,9 +22,8 @@ public class VerticalColumnChart extends ColumnChart
     public void draw()
     {
         drawEmptyChart();
-        drawTitle();
-        drawVerticalColumns();
         drawVerticalColumnsLabels();
+        drawVerticalColumns();
         drawHorizontalSeparatorsWithLabels();
     }
 
@@ -92,7 +91,23 @@ public class VerticalColumnChart extends ColumnChart
 
     private void drawVerticalColumns()
     {
+        Rectangle column;
+        double intervalWidthUp = 0;
+        double intervalWidthDown = 0;
+        double columnLength = 0;
 
+        for(int i = 0; i < data.size(); i++)
+        {
+            columnLength = data.get(i).getData()/maxDataValues * ((0.95*height)-maxAxisHeight);
+            intervalWidthUp = 0.05*width + (((maxAxisWidth-0.05*width) / data.size()) * i);
+            intervalWidthDown = 0.05*width + (((maxAxisWidth-0.05*width) / data.size()) * (i+1));
+
+            column = new Rectangle(this,
+                    new Point(intervalWidthUp + 0.01*width, 0.95*height - columnLength),
+                    new Point(intervalWidthDown - 0.01*width ,0.95*height),
+                    data.get(i).getColor());
+            column.draw();
+        }
     }
 
     private void drawVerticalColumnsLabels()

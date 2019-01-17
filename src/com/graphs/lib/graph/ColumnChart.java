@@ -1,5 +1,6 @@
 package com.graphs.lib.graph;
 
+import com.graphs.lib.graph.data.Data;
 import com.graphs.lib.graph.element.*;
 
 import java.util.ArrayList;
@@ -22,13 +23,12 @@ abstract class ColumnChart extends Graph
     protected double valuesSpike = (maxDataValues-minDataValues) / (separatorsAmount-1);
     protected double valueFontSize = 20;
     protected int roundValue = 2;
+    protected double wholeAxisValue = maxDataValues - minDataValues;
 
     protected double columnsWidth = 25; //TODO: think about proper axis scalling
     protected double columnsGapsWidth = 3; //TODO: think about proper axis scalling
-    //numbers of items from every list must be the same
-    protected List<Rectangle> columns = new ArrayList<>();
-    protected List<Text> columnsLabels = new ArrayList<>();
-    protected List<Text> columnsValues = new ArrayList<>();
+
+    protected List<Data> data = new ArrayList();
 
     public ColumnChart(int width, int height)
     {
@@ -77,16 +77,20 @@ abstract class ColumnChart extends Graph
         this.roundValue = roundValue;
     }
 
-    @Override
-    public void draw()
+    public void insertData(String label, double data, Color color)
     {
-        drawEmptyChart();
+        Data barData = new Data(label, data, color);
+        this.data.add(barData);
     }
+
+    @Override
+    public void draw() {}
 
     public void drawEmptyChart()
     {
         drawVerticalGraphLine();
         drawHorizontalGraphLine();
+        drawTitle();
     }
 
     private void drawVerticalGraphLine()

@@ -22,7 +22,6 @@ public class HorizontalColumnChart extends ColumnChart
     public void draw()
     {
         drawEmptyChart();
-        drawTitle();
         drawVerticalSeparatorsWithLabels();
         drawHorizontalColumns();
         drawHorizontalColumnsLabels();
