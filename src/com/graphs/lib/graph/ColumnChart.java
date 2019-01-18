@@ -23,10 +23,7 @@ abstract class ColumnChart extends Graph
     protected double valuesSpike = (maxDataValues-minDataValues) / (separatorsAmount-1);
     protected double valueFontSize = 20;
     protected int roundValue = 2;
-    protected double wholeAxisValue = maxDataValues - minDataValues;
-
-    protected double columnsWidth = 25; //TODO: think about proper axis scalling
-    protected double columnsGapsWidth = 3; //TODO: think about proper axis scalling
+    protected boolean enableLongSeparators = false;
 
     protected List<Data> data = new ArrayList();
 
@@ -76,6 +73,8 @@ abstract class ColumnChart extends Graph
     {
         this.roundValue = roundValue;
     }
+
+    public void enableLongSeparators(boolean enableLongSeparators) { this.enableLongSeparators = enableLongSeparators; }
 
     public void insertData(String label, double data, Color color)
     {

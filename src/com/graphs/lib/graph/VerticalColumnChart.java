@@ -37,8 +37,18 @@ public class VerticalColumnChart extends ColumnChart
         for(double i = (0.95*height); i >= maxAxisHeight-0.0001;
             i=i-(((0.95*height)-maxAxisHeight) / (separatorsAmount-1)))
         {
-            line = new Line(this, new Point(minHorizontalSeparatorsLength, i), new Point(maxHorizontalSeparatorsLength, i));
-            line.draw();
+            if(enableLongSeparators)
+            {
+                line = new Line(this, new Point(minHorizontalSeparatorsLength, i),
+                        new Point(maxAxisWidth, i));
+                line.draw();
+            }
+            else
+            {
+                line = new Line(this, new Point(minHorizontalSeparatorsLength, i),
+                        new Point(maxHorizontalSeparatorsLength, i));
+                line.draw();
+            }
 
             if(value != (int)value)
             {
@@ -98,7 +108,7 @@ public class VerticalColumnChart extends ColumnChart
 
         for(int i = 0; i < data.size(); i++)
         {
-            columnLength = data.get(i).getData()/maxDataValues * ((0.95*height)-maxAxisHeight);
+            columnLength = (data.get(i).getData()-minDataValues)/(maxDataValues-minDataValues) * ((0.95*height)-maxAxisHeight);
             intervalWidthUp = 0.05*width + (((maxAxisWidth-0.05*width) / data.size()) * i);
             intervalWidthDown = 0.05*width + (((maxAxisWidth-0.05*width) / data.size()) * (i+1));
 

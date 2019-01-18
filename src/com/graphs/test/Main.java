@@ -15,20 +15,21 @@ import static com.graphs.lib.graph.element.Text.Align.RIGHT;
 
 public class Main {
     public static void main(String[] args) {
-        VerticalColumnChart verticalGraph = new VerticalColumnChart(1920, 1080);
+        HorizontalColumnChart verticalGraph = new HorizontalColumnChart(1600, 900);
         verticalGraph.setTitle("Wykres kolumnowy", 40, Text.Align.RIGHT, Text.Align.CENTER, ColorsPalette.Pink);
         verticalGraph.setHorizontalAxisRatio(1);
-        verticalGraph.setVerticalAxisRatio(0.5);
+        verticalGraph.setVerticalAxisRatio(1);
         verticalGraph.setSeparatorsAmount(11);
-        verticalGraph.setMinDataValues(200);
-        verticalGraph.setMaxDataValues(800);
+        verticalGraph.enableLongSeparators(true);
+        verticalGraph.setMinDataValues(0);
+        verticalGraph.setMaxDataValues(1000);
         verticalGraph.setRoundValue(3);
-        verticalGraph.insertData("Styczeń", 50, ColorsPalette.Red);
-        verticalGraph.insertData("Luty", 500, ColorsPalette.Blue);
-        verticalGraph.insertData("Marzec", 700, ColorsPalette.Orange);
-        verticalGraph.insertData("Kwiecień", 800, ColorsPalette.DarkYellow);
-//        verticalGraph.insertData("Maj", 1000, ColorsPalette.DarkYellow);
-//        verticalGraph.insertData("Czerwiec", 1000, ColorsPalette.DarkYellow);
+        verticalGraph.insertData("Styczeń", 400, ColorsPalette.Red);
+        verticalGraph.insertData("Luty", 153, ColorsPalette.Blue);
+        verticalGraph.insertData("Marzec", 800, ColorsPalette.Orange);
+        verticalGraph.insertData("Kwiecień", 190, ColorsPalette.DarkYellow);
+        verticalGraph.insertData("Maj", 1000, ColorsPalette.DarkGreen);
+        verticalGraph.insertData("Czerwiec", 456, ColorsPalette.DarkBrown);
 //        verticalGraph.insertData("Lipiec", 1000, ColorsPalette.DarkYellow);
 //        verticalGraph.insertData("Sierpień", 1000, ColorsPalette.DarkYellow);
 //        verticalGraph.insertData("Wrzesień", 1000, ColorsPalette.DarkYellow);

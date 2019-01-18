@@ -37,8 +37,18 @@ public class HorizontalColumnChart extends ColumnChart
         for(double i = (0.05*width); i <= maxAxisWidth+0.0001;
             i=i+((maxAxisWidth-(0.05*width)) / (separatorsAmount-1)))
         {
-            line = new Line(this, new Point(i, minVerticalSeparatorsLength), new Point(i, maxVerticalSeparatorsLength));
-            line.draw();
+            if(enableLongSeparators)
+            {
+                line = new Line(this, new Point(i, maxAxisHeight),
+                        new Point(i, maxVerticalSeparatorsLength));
+                line.draw();
+            }
+            else
+            {
+                line = new Line(this, new Point(i, minVerticalSeparatorsLength),
+                        new Point(i, maxVerticalSeparatorsLength));
+                line.draw();
+            }
 
             if(value != (int)value)
             {
@@ -91,7 +101,23 @@ public class HorizontalColumnChart extends ColumnChart
 
     private void drawHorizontalColumns()
     {
+        Rectangle column;
+        double intervalHeightUp = 0;
+        double intervalHeightDown = 0;
+        double columnLength = 0;
 
+        for(int i = 0; i < data.size(); i++)
+        {
+            columnLength = (data.get(i).getData()-minDataValues)/(maxDataValues-minDataValues) * (maxAxisWidth-0.05*width);
+            intervalHeightUp = 0.95*height - ((((0.95*height)-maxAxisHeight) / data.size()) * i);
+            intervalHeightDown = 0.95*height - ((((0.95*height)-maxAxisHeight) / data.size()) * (i+1));
+
+            column = new Rectangle(this,
+                    new Point(0.05*width, intervalHeightUp - 0.01*height),
+                    new Point(0.05*width + columnLength,intervalHeightDown + 0.01*height),
+                    data.get(i).getColor());
+            column.draw();
+        }
     }
 
     private void drawHorizontalColumnsLabels()
