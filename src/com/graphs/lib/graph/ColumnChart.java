@@ -2,6 +2,7 @@ package com.graphs.lib.graph;
 
 import com.graphs.lib.graph.data.Data;
 import com.graphs.lib.graph.element.*;
+import com.graphs.lib.graph.exceptions.InvalidValueException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +14,10 @@ abstract class ColumnChart extends Graph
     protected double maxAxisHeight = height-(verticalAxisRatio*0.85*height + 0.05*height);
     protected double maxAxisWidth = horizontalAxisRatio*0.85*width + 0.05*width;
     protected int separatorsAmount = 5;
-    protected double minVerticalSeparatorsLength = horizontalAxisRatio*0.94*height;
-    protected double maxVerticalSeparatorsLength = horizontalAxisRatio*0.96*height;
-    protected double minHorizontalSeparatorsLength = verticalAxisRatio*0.04*width;
-    protected double maxHorizontalSeparatorsLength = verticalAxisRatio*0.06*width;
+    protected double minVerticalSeparatorsLength = 0.94*height;
+    protected double maxVerticalSeparatorsLength = 0.96*height;
+    protected double minHorizontalSeparatorsLength = 0.04*width;
+    protected double maxHorizontalSeparatorsLength = 0.06*width;
     protected double minDataValues = 0;
     protected double maxDataValues = 1000;
     protected double valuesSpike = (maxDataValues-minDataValues) / (separatorsAmount-1);
@@ -33,12 +34,14 @@ abstract class ColumnChart extends Graph
 
     public ColumnChart()
     {
-        this.width = 800;
-        this.height = 600;
+        this.width = 1600;
+        this.height = 900;
     }
 
     public void setVerticalAxisRatio(double verticalAxisRatio)
     {
+        if(verticalAxisRatio > 1 || verticalAxisRatio < 0)
+            throw new InvalidValueException("Vertical ratio must be between 0 and 1.");
         this.verticalAxisRatio = verticalAxisRatio;
         this.maxAxisHeight = height-(verticalAxisRatio*0.85*height + 0.05*height);
         this.minHorizontalSeparatorsLength = ((0.01-(verticalAxisRatio/100))+0.04)*width;
@@ -48,6 +51,8 @@ abstract class ColumnChart extends Graph
 
     public void setHorizontalAxisRatio(double horizontalAxisRatio)
     {
+        if(horizontalAxisRatio > 1 || horizontalAxisRatio < 0)
+            throw new InvalidValueException("Horizontal ratio must be between 0 and 1.");
         this.horizontalAxisRatio = horizontalAxisRatio;
         this.maxAxisWidth = horizontalAxisRatio*0.85*width + 0.05*width;
         this.minVerticalSeparatorsLength = ((0.01-(horizontalAxisRatio/100))+0.94)*height;
@@ -57,6 +62,8 @@ abstract class ColumnChart extends Graph
 
     public void setSeparatorsAmount(int separatorsAmount)
     {
+        if(separatorsAmount < 2)
+            throw new InvalidValueException("Separators amount can not be less than 2.");
         this.separatorsAmount = separatorsAmount;
     }
 
@@ -70,6 +77,8 @@ abstract class ColumnChart extends Graph
 
     public void setRoundValue(int roundValue)
     {
+        if(roundValue < 0)
+            throw new InvalidValueException("Round value can not be less than 0.");
         this.roundValue = roundValue;
     }
 
@@ -81,9 +90,6 @@ abstract class ColumnChart extends Graph
         this.data.add(barData);
     }
 
-    @Override
-    public void draw() {}
-
     public void drawEmptyChart()
     {
         drawVerticalGraphLine();
@@ -94,21 +100,20 @@ abstract class ColumnChart extends Graph
 
     private void drawVerticalGraphLine()
     {
-        Line line = new Line(this, new Point(0.05*width, 0.95*height), //(36,684)
-                new Point(0.05*width, maxAxisHeight)); //(36,72)
+        Line line = new Line(this, new Point(0.05*width, 0.95*height),
+                new Point(0.05*width, maxAxisHeight));
         line.draw();
     }
 
     private void drawHorizontalGraphLine()
     {
-        Line line = new Line(this, new Point(0.05*width, 0.95*height), //(36,684)
-                new Point(maxAxisWidth, 0.95*height)); //(1152,684)
+        Line line = new Line(this, new Point(0.05*width, 0.95*height),
+                new Point(maxAxisWidth, 0.95*height));
         line.draw();
     }
 
     private void drawLegend()
     {
-        LegendItem legendItem;
         Rectangle legendRectangle;
         Text numberOfItem;
         Text legendLabel;
@@ -126,16 +131,16 @@ abstract class ColumnChart extends Graph
 
             numberOfItem = new Text(this,
                     Integer.toString(i+1),
-                    new Point(legendRectangleWidth, legendRectangleHeight),
-                    new Point(legendRectangleWidth + 0.03*width*horizontalAxisRatio, legendRectangleHeight + 0.03*height*verticalAxisRatio),
+                    new Point(legendRectangleWidth, legendRectangleHeight-0.01*height*verticalAxisRatio),
+                    new Point(legendRectangleWidth + 0.04*width*horizontalAxisRatio, legendRectangleHeight + 0.04*height*verticalAxisRatio),
                     (int)(20*verticalAxisRatio),
                     ColorsPalette.Black);
             numberOfItem.draw();
 
             legendLabel = new Text(this,
                     data.get(i).getLabel(),
-                    new Point(legendRectangleWidth + 0.03*width*horizontalAxisRatio +0.01*width*horizontalAxisRatio, legendRectangleHeight),
-                    new Point(width, legendRectangleHeight + 0.03*height*verticalAxisRatio),
+                    new Point(legendRectangleWidth + 0.03*width*horizontalAxisRatio +0.01*width*horizontalAxisRatio, legendRectangleHeight-0.01*height*verticalAxisRatio),
+                    new Point(width, legendRectangleHeight + 0.04*height*verticalAxisRatio),
                     (int)(20*verticalAxisRatio),
                     ColorsPalette.Black);
             legendLabel.draw();

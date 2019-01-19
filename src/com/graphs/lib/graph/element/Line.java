@@ -58,6 +58,5 @@ public class Line implements Drawable{
         parent.stroke(color.getR(), color.getG(), color.getB());
         parent.strokeWeight(thickness);
         parent.line(start.getX(), start.getY(), end.getX(), end.getY());
-
     }
 }

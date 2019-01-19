@@ -1,25 +1,26 @@
 package com.graphs.lib.graph;
 
 import com.graphs.lib.graph.element.*;
+import com.graphs.lib.graph.exceptions.InvalidWindowSizeException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HorizontalColumnChart extends ColumnChart
 {
-    public HorizontalColumnChart(int width, int height)
+    public HorizontalColumnChart(int width, int height) throws InvalidWindowSizeException
     {
         super(width, height);
     }
 
     public HorizontalColumnChart()
     {
-        this.width = 800;
-        this.height = 600;
+        this.width = 1600;
+        this.height = 900;
     }
 
     @Override
-    public void draw()
+    public void createChart()
     {
         drawEmptyChart();
         drawVerticalSeparatorsWithLabels();
