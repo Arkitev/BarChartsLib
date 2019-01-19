@@ -24,7 +24,6 @@ public class HorizontalColumnChart extends ColumnChart
         drawEmptyChart();
         drawVerticalSeparatorsWithLabels();
         drawHorizontalColumns();
-        drawHorizontalColumnsLabels();
     }
 
     private void drawVerticalSeparatorsWithLabels()
@@ -56,16 +55,16 @@ public class HorizontalColumnChart extends ColumnChart
 
                 if(lengthOfValue <= 6)
                 {
-                    text = new Text(this, Double.toString(round(value, roundValue)), new Point(i-0.00125*width+(1-lengthOfValue)*0.0033*width,
-                            0.9394*height),
-                            new Point(i+0.0075*width-(1-lengthOfValue)*0.004*width,0.99*height), (int)valueFontSize, new Color(0,0,0));
+                    text = new Text(this, Double.toString(round(value, roundValue)),
+                            new Point(i-0.00125*width+(1-lengthOfValue)*0.0033*width, 0.9394*height),
+                            new Point(i+0.0075*width-(1-lengthOfValue)*0.004*width,0.99*height), (int)valueFontSizeHorizontal, new Color(0,0,0));
                     text.draw();
                 }
                 else
                 {
-                    text = new Text(this, Double.toString(round(value, roundValue)), new Point(i-0.02*width,
-                            0.9394*height),
-                            new Point(i+0.02*width,0.99*height), (int)valueFontSize, new Color(0,0,0));
+                    text = new Text(this, Double.toString(round(value, roundValue)),
+                            new Point(i-0.02*width, 0.9394*height),
+                            new Point(i+0.02*width,0.99*height), (int)valueFontSizeHorizontal, new Color(0,0,0));
                     text.draw();
                 }
             }
@@ -77,16 +76,16 @@ public class HorizontalColumnChart extends ColumnChart
 
                 if(lengthOfValue <= 6)
                 {
-                    text = new Text(this, Integer.toString(intValue), new Point(i-0.00125*width+(1-lengthOfValue)*0.0033*width,
-                            0.9394*height),
-                            new Point(i+0.0075*width-(1-lengthOfValue)*0.004*width,0.99*height), (int)valueFontSize, new Color(0,0,0));
+                    text = new Text(this, Integer.toString(intValue),
+                            new Point(i-0.00125*width+(1-lengthOfValue)*0.0033*width, 0.9394*height),
+                            new Point(i+0.0075*width-(1-lengthOfValue)*0.004*width,0.99*height), (int)valueFontSizeHorizontal, new Color(0,0,0));
                     text.draw();
                 }
                 else
                 {
-                    text = new Text(this, Integer.toString(intValue), new Point(i-0.02*width,
-                            0.9394*height),
-                            new Point(i+0.02*width,0.99*height), (int)valueFontSize, new Color(0,0,0));
+                    text = new Text(this, Integer.toString(intValue),
+                            new Point(i-0.02*width, 0.9394*height),
+                            new Point(i+0.02*width,0.99*height), (int)valueFontSizeHorizontal, new Color(0,0,0));
                     text.draw();
                 }
             }
@@ -102,6 +101,7 @@ public class HorizontalColumnChart extends ColumnChart
     private void drawHorizontalColumns()
     {
         Rectangle column;
+        Text text;
         double intervalHeightUp = 0;
         double intervalHeightDown = 0;
         double columnLength = 0;
@@ -113,15 +113,17 @@ public class HorizontalColumnChart extends ColumnChart
             intervalHeightDown = 0.95*height - ((((0.95*height)-maxAxisHeight) / data.size()) * (i+1));
 
             column = new Rectangle(this,
-                    new Point(0.05*width, intervalHeightUp - 0.01*height),
-                    new Point(0.05*width + columnLength,intervalHeightDown + 0.01*height),
+                    new Point(0.05*width, intervalHeightUp - 0.01*height*verticalAxisRatio),
+                    new Point(0.05*width + columnLength,intervalHeightDown + 0.01*height*verticalAxisRatio),
                     data.get(i).getColor());
             column.draw();
+
+            text = new Text(this, Integer.toString(i+1),
+                    new Point(0.03*width,intervalHeightUp - 0.01*height),
+                    new Point(0.049*width,intervalHeightDown + 0.01*height),
+                    (int)valueFontSizeHorizontal,
+                    ColorsPalette.Black);
+            text.draw();
         }
-    }
-
-    private void drawHorizontalColumnsLabels()
-    {
-
     }
 }

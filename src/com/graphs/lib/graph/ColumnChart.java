@@ -21,7 +21,8 @@ abstract class ColumnChart extends Graph
     protected double minDataValues = 0; // can not be less than the smallest value of columnsValues List
     protected double maxDataValues = 1000; // can not be bigger than the biggest value of columnsValues List
     protected double valuesSpike = (maxDataValues-minDataValues) / (separatorsAmount-1);
-    protected double valueFontSize = 20;
+    protected double valueFontSizeVertical = 20;
+    protected double valueFontSizeHorizontal = 20;
     protected int roundValue = 2;
     protected boolean enableLongSeparators = false;
 
@@ -44,16 +45,16 @@ abstract class ColumnChart extends Graph
         this.maxAxisHeight = height-(verticalAxisRatio*0.85*height + 0.05*height);
         this.minHorizontalSeparatorsLength = ((0.01-(verticalAxisRatio/100))+0.04)*width;
         this.maxHorizontalSeparatorsLength = (0.06-(0.01-(verticalAxisRatio/100)))*width;
-        this.valueFontSize = valueFontSize * verticalAxisRatio + 10*(1.0-verticalAxisRatio);
+        this.valueFontSizeVertical = valueFontSizeVertical * verticalAxisRatio + 10*(1.0-verticalAxisRatio);
     }
 
-    public void setHorizontalAxisRatio(double horizontalAxisRatio )
+    public void setHorizontalAxisRatio(double horizontalAxisRatio)
     {
         this.horizontalAxisRatio = horizontalAxisRatio;
         this.maxAxisWidth = horizontalAxisRatio*0.85*width + 0.05*width;
         this.minVerticalSeparatorsLength = ((0.01-(horizontalAxisRatio/100))+0.94)*height;
         this.maxVerticalSeparatorsLength = (0.96-(0.01-(horizontalAxisRatio/100)))*height;
-        this.valueFontSize = (valueFontSize * horizontalAxisRatio + 10*(1.0-horizontalAxisRatio)) / (1920.0/width);
+        this.valueFontSizeHorizontal = (valueFontSizeHorizontal * horizontalAxisRatio + 10*(1.0-horizontalAxisRatio)) / (1920.0/width);
     }
 
     public void setSeparatorsAmount(int separatorsAmount)
@@ -89,6 +90,7 @@ abstract class ColumnChart extends Graph
     {
         drawVerticalGraphLine();
         drawHorizontalGraphLine();
+        drawLegend();
         drawTitle();
     }
 
@@ -104,5 +106,33 @@ abstract class ColumnChart extends Graph
         Line line = new Line(this, new Point(0.05*width, 0.95*height), //(36,684)
                 new Point(maxAxisWidth, 0.95*height)); //(1152,684)
         line.draw();
+    }
+
+    private void drawLegend()
+    {
+        LegendItem legendItem;
+        Rectangle rectangle;
+        Text text;
+
+        for(int i = 0; i < data.size(); i++)
+        {
+            rectangle = new Rectangle(this,
+                    new Point(maxAxisWidth + 0.01*width*horizontalAxisRatio,
+                            maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i)),
+                    new Point(maxAxisWidth + 0.01*width*horizontalAxisRatio + 0.03*width*horizontalAxisRatio,
+                            (maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i)) + 0.03*height*verticalAxisRatio),
+                    data.get(i).getColor());
+            rectangle.draw();
+
+            text = new Text(this,
+                    Integer.toString(i+1),
+                    new Point(maxAxisWidth + 0.01*width*horizontalAxisRatio,
+                            maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i)),
+                    new Point(maxAxisWidth + 0.01*width*horizontalAxisRatio + 0.03*width*horizontalAxisRatio,
+                            (maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i)) + 0.03*height*verticalAxisRatio),
+                    (int)(20*verticalAxisRatio),
+                    ColorsPalette.Black);
+            text.draw();
+        }
     }
 }

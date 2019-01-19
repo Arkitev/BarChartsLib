@@ -22,9 +22,8 @@ public class VerticalColumnChart extends ColumnChart
     public void draw()
     {
         drawEmptyChart();
-        drawVerticalColumnsLabels();
-        drawVerticalColumns();
         drawHorizontalSeparatorsWithLabels();
+        drawVerticalColumns();
     }
 
     private void drawHorizontalSeparatorsWithLabels()
@@ -56,16 +55,16 @@ public class VerticalColumnChart extends ColumnChart
 
                 if(lengthOfValue <= 4)
                 {
-                    text = new Text(this, Double.toString(round(value, roundValue)), new Point((0.03+((1-lengthOfValue)*0.01))*width,
-                            i-0.02*height),
-                            new Point(0.039*width,i+0.06*height), (int)valueFontSize, new Color(0,0,0));
+                    text = new Text(this, Double.toString(round(value, roundValue)),
+                            new Point((0.03+((1-lengthOfValue)*0.01))*width, i-0.02*height),
+                            new Point(0.039*width,i+0.06*height), (int)valueFontSizeVertical, new Color(0,0,0));
                     text.draw();
                 }
                 else
                 {
-                    text = new Text(this, Double.toString(round(value, roundValue)), new Point(0.0*width,
-                            i-0.02*height),
-                            new Point(0.039*width,i+0.06*height), (int)valueFontSize, new Color(0,0,0));
+                    text = new Text(this, Double.toString(round(value, roundValue)),
+                            new Point(0.0*width, i-0.02*height),
+                            new Point(0.039*width,i+0.06*height), (int)valueFontSizeVertical, new Color(0,0,0));
                     text.draw();
                 }
             }
@@ -77,16 +76,16 @@ public class VerticalColumnChart extends ColumnChart
 
                 if(lengthOfValue <= 4)
                 {
-                    text = new Text(this, Integer.toString(intValue), new Point((0.03+((1-lengthOfValue)*0.01))*width,
-                            i-0.06*height),
-                            new Point(0.039*width,i+0.06*height), (int)valueFontSize, new Color(0,0,0));
+                    text = new Text(this, Integer.toString(intValue),
+                            new Point((0.03+((1-lengthOfValue)*0.01))*width, i-0.06*height),
+                            new Point(0.039*width,i+0.06*height), (int)valueFontSizeVertical, new Color(0,0,0));
                     text.draw();
                 }
                 else
                 {
-                    text = new Text(this, Integer.toString(intValue), new Point(0.0*width,
-                            i-0.06*height),
-                            new Point(0.039*width,i+0.06*height), (int)valueFontSize, new Color(0,0,0));
+                    text = new Text(this, Integer.toString(intValue),
+                            new Point(0.0*width, i-0.06*height),
+                            new Point(0.039*width,i+0.06*height), (int)valueFontSizeVertical, new Color(0,0,0));
                     text.draw();
                 }
             }
@@ -102,6 +101,7 @@ public class VerticalColumnChart extends ColumnChart
     private void drawVerticalColumns()
     {
         Rectangle column;
+        Text text;
         double intervalWidthUp = 0;
         double intervalWidthDown = 0;
         double columnLength = 0;
@@ -113,15 +113,22 @@ public class VerticalColumnChart extends ColumnChart
             intervalWidthDown = 0.05*width + (((maxAxisWidth-0.05*width) / data.size()) * (i+1));
 
             column = new Rectangle(this,
-                    new Point(intervalWidthUp + 0.01*width, 0.95*height - columnLength),
-                    new Point(intervalWidthDown - 0.01*width ,0.95*height),
+                    new Point(intervalWidthUp + 0.01*width*horizontalAxisRatio, 0.95*height - columnLength),
+                    new Point(intervalWidthDown - 0.01*width*horizontalAxisRatio ,0.95*height),
                     data.get(i).getColor());
             column.draw();
+
+            text = new Text(this, Integer.toString(i+1),
+                    new Point(intervalWidthUp + 0.01*width + ((((maxAxisWidth-0.05*width) / data.size())-0.02*width) / 2 - 0.005*width),0.951*height),
+                    new Point(intervalWidthDown - 0.01*width - ((((maxAxisWidth-0.05*width) / data.size())-0.02*width) / 2 - 0.015*width),0.99*height),
+                    (int)valueFontSizeVertical,
+                    ColorsPalette.Black);
+            text.draw();
+
+//            Rectangle rectangle = new Rectangle(this,
+//                    new Point(intervalWidthUp + 0.01*width + ((((maxAxisWidth-0.05*width) / data.size())-0.02*width) / 2 - 0.005*width),0.951*height),
+//                    new Point(intervalWidthDown - 0.01*width - ((((maxAxisWidth-0.05*width) / data.size())-0.02*width) / 2 - 0.015*width),0.99*height));
+//            rectangle.draw();
         }
-    }
-
-    private void drawVerticalColumnsLabels()
-    {
-
     }
 }

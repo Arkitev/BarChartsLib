@@ -17,13 +17,13 @@ public class Data
         this.color = color;
     }
 
-    public double getData() { return data; }
-
-    public void setData(double data) { this.data = data; }
-
     public String getLabel() { return label; }
 
     public void setLabel(String Label) { this.label = label; }
+
+    public double getData() { return data; }
+
+    public void setData(double data) { this.data = data; }
 
     public Color getColor() { return color; }
 

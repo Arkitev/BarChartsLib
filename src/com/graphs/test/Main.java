@@ -15,7 +15,7 @@ import static com.graphs.lib.graph.element.Text.Align.RIGHT;
 
 public class Main {
     public static void main(String[] args) {
-        HorizontalColumnChart verticalGraph = new HorizontalColumnChart(1600, 900);
+        VerticalColumnChart verticalGraph = new VerticalColumnChart(1600, 900);
         verticalGraph.setTitle("Wykres kolumnowy", 40, Text.Align.RIGHT, Text.Align.CENTER, ColorsPalette.Pink);
         verticalGraph.setHorizontalAxisRatio(1);
         verticalGraph.setVerticalAxisRatio(1);
