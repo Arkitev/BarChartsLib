@@ -15,11 +15,11 @@ import static com.graphs.lib.graph.element.Text.Align.RIGHT;
 
 public class Main {
     public static void main(String[] args) {
-        VerticalColumnChart verticalGraph = new VerticalColumnChart(1600, 900);
+        HorizontalColumnChart verticalGraph = new HorizontalColumnChart(1600, 900);
         verticalGraph.setTitle("Wykres kolumnowy", 40, Text.Align.RIGHT, Text.Align.CENTER, ColorsPalette.Pink);
-        verticalGraph.setHorizontalAxisRatio(1);
-        verticalGraph.setVerticalAxisRatio(1);
-        verticalGraph.setSeparatorsAmount(11);
+        verticalGraph.setHorizontalAxisRatio(0.9);
+        verticalGraph.setVerticalAxisRatio(0.9);
+        verticalGraph.setSeparatorsAmount(6);
         verticalGraph.enableLongSeparators(true);
         verticalGraph.setMinDataValues(0);
         verticalGraph.setMaxDataValues(1000);
@@ -30,18 +30,12 @@ public class Main {
         verticalGraph.insertData("Kwiecień", 190, ColorsPalette.DarkYellow);
         verticalGraph.insertData("Maj", 1000, ColorsPalette.DarkGreen);
         verticalGraph.insertData("Czerwiec", 456, ColorsPalette.DarkBrown);
-//        verticalGraph.insertData("Lipiec", 1000, ColorsPalette.DarkYellow);
-//        verticalGraph.insertData("Sierpień", 1000, ColorsPalette.DarkYellow);
-//        verticalGraph.insertData("Wrzesień", 1000, ColorsPalette.DarkYellow);
-//        verticalGraph.insertData("Październik", 1000, ColorsPalette.DarkYellow);
-//        verticalGraph.insertData("Listopad", 1000, ColorsPalette.DarkYellow);
-//        verticalGraph.insertData("Grudzień", 1000, ColorsPalette.DarkYellow);
+        verticalGraph.insertData("Lipiec", 133, ColorsPalette.DarkPink);
+        verticalGraph.insertData("Sierpień", 783, ColorsPalette.LightGreen);
+        verticalGraph.insertData("Wrzesień", 967, ColorsPalette.LightRed);
+        verticalGraph.insertData("Październik", 650, ColorsPalette.Black);
+        verticalGraph.insertData("Listopad", 602, ColorsPalette.DefaultBackground);
+        verticalGraph.insertData("Grudzień", 912, ColorsPalette.Green);
         verticalGraph.run();
-
-        //HorizontalColumnChart horizontalGraph = new HorizontalColumnChart(1280,720);
-        //horizontalGraph.setHorizontalAxisRatio(0.49834718974);
-        //horizontalGraph.setVerticalAxisRatio(0.3);
-        //horizontalGraph.setSeparatorsAmount(5);
-        //horizontalGraph.run();
     }
 }

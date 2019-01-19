@@ -8,24 +8,22 @@ import java.util.List;
 
 abstract class ColumnChart extends Graph
 {
-    protected double verticalAxisRatio = 1; // can not be bigger than 1
-    protected double horizontalAxisRatio = 1; // can not be bigger than 1
-    protected double maxAxisHeight = height-(verticalAxisRatio*0.85*height + 0.05*height); //72 dla 720 height
-    protected double maxAxisWidth = horizontalAxisRatio*0.85*width + 0.05*width; //1152 dla 1280 width
-
+    protected double verticalAxisRatio = 0.9;
+    protected double horizontalAxisRatio = 0.9;
+    protected double maxAxisHeight = height-(verticalAxisRatio*0.85*height + 0.05*height);
+    protected double maxAxisWidth = horizontalAxisRatio*0.85*width + 0.05*width;
     protected int separatorsAmount = 5;
     protected double minVerticalSeparatorsLength = horizontalAxisRatio*0.94*height;
     protected double maxVerticalSeparatorsLength = horizontalAxisRatio*0.96*height;
     protected double minHorizontalSeparatorsLength = verticalAxisRatio*0.04*width;
     protected double maxHorizontalSeparatorsLength = verticalAxisRatio*0.06*width;
-    protected double minDataValues = 0; // can not be less than the smallest value of columnsValues List
-    protected double maxDataValues = 1000; // can not be bigger than the biggest value of columnsValues List
+    protected double minDataValues = 0;
+    protected double maxDataValues = 1000;
     protected double valuesSpike = (maxDataValues-minDataValues) / (separatorsAmount-1);
     protected double valueFontSizeVertical = 20;
     protected double valueFontSizeHorizontal = 20;
     protected int roundValue = 2;
     protected boolean enableLongSeparators = false;
-
     protected List<Data> data = new ArrayList();
 
     public ColumnChart(int width, int height)
@@ -111,28 +109,36 @@ abstract class ColumnChart extends Graph
     private void drawLegend()
     {
         LegendItem legendItem;
-        Rectangle rectangle;
-        Text text;
+        Rectangle legendRectangle;
+        Text numberOfItem;
+        Text legendLabel;
 
         for(int i = 0; i < data.size(); i++)
         {
-            rectangle = new Rectangle(this,
-                    new Point(maxAxisWidth + 0.01*width*horizontalAxisRatio,
-                            maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i)),
-                    new Point(maxAxisWidth + 0.01*width*horizontalAxisRatio + 0.03*width*horizontalAxisRatio,
-                            (maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i)) + 0.03*height*verticalAxisRatio),
-                    data.get(i).getColor());
-            rectangle.draw();
+            double legendRectangleHeight = (maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i));
+            double legendRectangleWidth = maxAxisWidth + 0.01*width*horizontalAxisRatio;
 
-            text = new Text(this,
+            legendRectangle = new Rectangle(this,
+                    new Point(legendRectangleWidth, legendRectangleHeight),
+                    new Point(legendRectangleWidth + 0.03*width*horizontalAxisRatio, legendRectangleHeight + 0.03*height*verticalAxisRatio),
+                    data.get(i).getColor());
+            legendRectangle.draw();
+
+            numberOfItem = new Text(this,
                     Integer.toString(i+1),
-                    new Point(maxAxisWidth + 0.01*width*horizontalAxisRatio,
-                            maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i)),
-                    new Point(maxAxisWidth + 0.01*width*horizontalAxisRatio + 0.03*width*horizontalAxisRatio,
-                            (maxAxisHeight + ((((0.95*height)-maxAxisHeight) / data.size()) * i)) + 0.03*height*verticalAxisRatio),
+                    new Point(legendRectangleWidth, legendRectangleHeight),
+                    new Point(legendRectangleWidth + 0.03*width*horizontalAxisRatio, legendRectangleHeight + 0.03*height*verticalAxisRatio),
                     (int)(20*verticalAxisRatio),
                     ColorsPalette.Black);
-            text.draw();
+            numberOfItem.draw();
+
+            legendLabel = new Text(this,
+                    data.get(i).getLabel(),
+                    new Point(legendRectangleWidth + 0.03*width*horizontalAxisRatio +0.01*width*horizontalAxisRatio, legendRectangleHeight),
+                    new Point(width, legendRectangleHeight + 0.03*height*verticalAxisRatio),
+                    (int)(20*verticalAxisRatio),
+                    ColorsPalette.Black);
+            legendLabel.draw();
         }
     }
 }
