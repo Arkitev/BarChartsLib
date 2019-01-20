@@ -5,8 +5,8 @@
       <element id="archive" name="barchartslib.jar">
         <element id="module-output" name="barchartslib" />
       </element>
-      <element id="library" level="project" name="com.lowagie.text-2.1.7" />
       <element id="library" level="project" name="core" />
+      <element id="library" level="project" name="com.lowagie.text-2.1.7" />
     </root>
   </artifact>
 </component>

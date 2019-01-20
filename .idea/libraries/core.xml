@@ -1,8 +1,7 @@
 <component name="libraryTable">
   <library name="core">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/production/graphs/lib/core.jar!/" />
-      <root url="jar://$PROJECT_DIR$/out/production/graphs/lib/com.lowagie.text-2.1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/core.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

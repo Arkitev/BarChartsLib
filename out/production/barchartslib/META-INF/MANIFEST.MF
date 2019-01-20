@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: core.jar com.lowagie.text-2.1.7.jar
+Main-Class: 
+
