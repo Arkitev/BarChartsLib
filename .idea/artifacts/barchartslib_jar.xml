@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="barchartslib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/barchartslib_jar</output-path>
+    <root id="root">
+      <element id="archive" name="barchartslib.jar">
+        <element id="module-output" name="barchartslib" />
+      </element>
+      <element id="library" level="project" name="com.lowagie.text-2.1.7" />
+      <element id="library" level="project" name="core" />
+    </root>
+  </artifact>
+</component>
